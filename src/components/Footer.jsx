@@ -1,7 +1,5 @@
-import React from 'react';
-
 const Footer = () => {
-  const updateDate = "july 28 2025"; // Hardcoded as per your script.js
+  const updateDate = "july 28 2025"; 
 
   return (
     <footer className="mt-8 pt-8 border-t border-border-color text-sm text-center text-text-color flex flex-col sm:flex-row justify-between items-center">

@@ -6,20 +6,22 @@ const langs = [
   { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg", alt: "Go", title: "Go" },
   { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg", alt: "Linux", title: "Linux" },
   { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", alt: "TypeScript", title: "TypeScript" },
-  { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg", alt: "C++", title: "C++" },
   { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", alt: "Docker", title: "Docker" },
+  { src: "https://raw.githubusercontent.com/gilbarbara/logos/de2c1f96ff6e74ea7ea979b43202e8d4b863c655/logos/fastapi-icon.svg", alt: "FastAPI", title: "FastAPI"},
   { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg", alt: "Kubernetes", title: "Kubernetes" },
   { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg", alt: "Django", title: "Django" },
   { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", alt: "Next.js", title: "Next.js" },
   { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", alt: "React", title: "React" },
   { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", alt: "PostgreSQL", title: "PostgreSQL" },
   { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg", alt: "Redis", title: "Redis" },
+  { src: "https://raw.githubusercontent.com/gilbarbara/logos/de2c1f96ff6e74ea7ea979b43202e8d4b863c655/logos/gin.svg", alt:"Gin", title:"Gin"},
   { src: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg", alt: "Jenkins", title: "Jenkins" },
   { src: "https://raw.githubusercontent.com/gilbarbara/logos/master/logos/prometheus.svg", alt: "Prometheus", title: "Prometheus" },
   { src: "https://raw.githubusercontent.com/gilbarbara/logos/master/logos/hadoop.svg", alt: "Hadoop", title: "Hadoop" },
   { src: "https://raw.githubusercontent.com/gilbarbara/logos/master/logos/kafka.svg", alt: "Kafka", title: "Kafka" },
   { src: "https://raw.githubusercontent.com/gilbarbara/logos/master/logos/elasticsearch.svg", alt: "Elasticsearch", title: "Elasticsearch" },
   { src: "https://raw.githubusercontent.com/gilbarbara/logos/master/logos/apache-spark.svg", alt: "PySpark", title: "PySpark" },
+  
 ];
 
 const LanguagesTools = () => {

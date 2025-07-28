@@ -28,6 +28,8 @@
   --shadow-custom-panel: 4px 4px 0 var(--color-shadow-color);
   --shadow-project-card: 7px 10px 0 var(--color-shadow-color);
   --shadow-experience-card: 5px 5px 0 var(--color-shadow-color);
+
+  /* New Shadow for hover effect */
 }
 
 /* Base Styles using custom properties defined in @theme */
