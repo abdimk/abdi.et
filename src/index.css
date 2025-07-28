@@ -1,0 +1,62 @@
+/* src/index.css */
+
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'MainFont';
+  src: url("/font/main_font.woff2") format('woff2'); /* Assuming font is in public/font */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  /* Colors */
+  --color-bg-color: #e5e5f7;
+  --color-dot-color: #444cf7;
+  --color-text-color: #111; /* Renamed to avoid clash with 'text' utility in Tailwind */
+  --color-accent: #000;
+  --color-border-color: #222;
+  --color-shadow-color: #383636;
+  --color-panel-bg: #000;
+  --color-panel-text: #f1f1f1;
+
+  /* Font Family */
+  --font-family-main: 'MainFont', sans-serif;
+
+  /* Box Shadows (Customizing the default shadow scale or adding new ones) */
+  --shadow-custom-panel: 4px 4px 0 var(--color-shadow-color);
+  --shadow-project-card: 7px 10px 0 var(--color-shadow-color);
+  --shadow-experience-card: 5px 5px 0 var(--color-shadow-color);
+}
+
+/* Base Styles using custom properties defined in @theme */
+body {
+  background-color: var(--color-bg-color);
+  background-image: radial-gradient(var(--color-dot-color) 1px, transparent 1px);
+  background-size: 12px 12px;
+  background-attachment: fixed;
+  font-family: var(--font-family-main);
+  color: var(--color-text-color);
+  padding: 2rem; /* Tailwind's p-8 will be 2rem, assuming default config or adjusted base */
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* You can also define global styles for headings or other elements if needed,
+   but Tailwind encourages using utility classes directly in components. */
+h1, h2, h3, h4 {
+  font-family: var(--font-family-main);
+  /* Tailwind utilities can handle margins: e.g., mb-2 */
+}
+
+/* Any other raw CSS from your style.css that cannot be directly
+   translated to Tailwind utilities can go here, but try to use utilities first. */
+
+/* Example of how you might create a custom utility if absolutely necessary,
+   though the goal with Tailwind 4 is often to apply classes directly. */
+/* @layer components {
+  .btn-primary {
+    @apply inline-block py-3 px-6 font-bold border-2 border-text-color no-underline text-white bg-text-color rounded-lg transition-colors duration-200 w-full sm:w-auto text-center;
+  }
+} */
