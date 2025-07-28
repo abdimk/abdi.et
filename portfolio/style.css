@@ -1,0 +1,466 @@
+@font-face {
+  font-family: 'MainFont';
+  src: url("font/main_font.woff2") format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+
+}
+
+/* === Global Variables === */
+:root {
+  --bg-color: #e5e5f7;
+  --dot-color: #444cf7;
+  --text: #111;
+  --accent: #000;
+  --border: #222;
+  --shadow: #383636;
+  --panel-bg: #000;
+  --panel-text: #f1f1f1;
+  /* --font: 'Courier New', Courier, monospace; */
+  --font: 'MainFont', sans-serif;
+}
+
+/* === Base Styles === */
+body {
+  background-color: var(--bg-color);
+  background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
+  background-size: 12px 12px;
+  background-attachment: fixed;
+  font-family: var(--font);
+  color: var(--text);
+  padding: 2rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font);
+  margin-bottom: 0.5rem;
+}
+
+.top-bar {
+  width: 100%;
+  padding: 0.8rem 0.1px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+
+
+.social-links a {
+  margin-left: 1rem;
+  color: var(--text);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  /* Removed transform here, as it will be handled on the icon itself */
+}
+
+/* Updated styles for the social icons */
+.social-links a i {
+  width: 20px;
+  height: 20px;
+  /* Add a transition for a smooth fade effect */
+  transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.social-links a:hover i {
+  /* Make the icon disappear on hover */
+  opacity: 0;
+  /* You can still keep the transform if you want a subtle movement before disappearing */
+  transform: scale(0.8);
+}
+
+
+/* === Hero Intro (Robi style) === */
+.hero-intro {
+  text-align: center;
+  padding: 4rem 1rem;
+  background: rgba(200, 200, 200, 0.37);
+  box-shadow: 4px 4px 0 var(--shadow);
+  border: 1px solid var(--border);
+  margin: 3px;
+}
+
+.hero-intro h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-intro .highlight {
+  color: var(--dot-color);
+}
+
+.hero-intro .subtitle {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto 2rem auto;
+  color: #333;
+}
+
+
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: 2px solid var(--text);
+  text-decoration: none;
+  color: var(--text);
+  border-radius: 8px;
+  transition: background 0.2s ease;
+  width: auto; /* Change to 100% inside media query */
+  max-width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+
+.btn.primary {
+  background: var(--text);
+  color: white;
+}
+
+.btn.primary:hover {
+  background: #000;
+}
+
+.btn.secondary:hover {
+  background: #eee;
+}
+
+
+.container {
+  display: grid;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* === Sections === */
+.intro-box,
+.about-box,
+.project-card {
+  border: 1px solid var(--border);
+  padding: 1rem;
+}
+
+.show-box {
+  background: white;
+  box-shadow: 4px 4px 0 var(--shadow);
+}
+
+.terminal-panel {
+  background: var(--panel-bg);
+  color: var(--panel-text);
+  box-shadow: 4px 4px 0 #444;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  float: left;
+  margin-right: 1rem;
+  border: 2px solid var(--border);
+}
+
+/* === Social Icons (The previous .social-icons block was effectively replaced by .social-links a i) === */
+.social-icons {
+  margin: 1rem 0;
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  font-size: 1.2rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.note {
+  border-top: 1px solid var(--border);
+  padding-top: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+code {
+  background: #ccc;
+  padding: 0.2rem 0.4rem;
+  font-size: 0.9rem;
+}
+
+.langs {
+  font-size: 1.2rem;
+}
+
+.icons span {
+  font-size: 1.4rem;
+  margin-right: 0.5rem;
+}
+
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: start;
+  align-items: center;
+}
+
+
+
+.icons img {
+  width: 40px;
+  height: 40px;
+  filter: grayscale(70%) contrast(120%);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.icons img:hover {
+  transform: scale(1.2);
+  filter: grayscale(0%) contrast(140%);
+}
+
+
+/* === Projects === */
+.projects {
+  margin-top: 1rem;
+}
+
+.projects__title {
+  /* outline: 1px solid red; */
+  text-align: center;
+  margin: 20px;
+  font-size: 2.5rem;
+
+}
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: white;
+  box-shadow: 7px 10px 0 var(--shadow);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.project-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 0.75rem;
+    border-radius: 4px;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: none;
+
+}
+
+.project-links {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.btn.small {
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+}
+
+
+.tags {
+  margin: 0.5rem 0;
+}
+
+.tags span {
+  display: inline-block;
+  background: #ddd;
+  color: #000;
+  font-size: 0.8rem;
+  margin-right: 0.3rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 2px;
+}
+
+.experience__title {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.experiance_cards {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  
+}
+
+.experiance_card {
+  border: 1px solid black;
+  border-radius: 2px;
+  background-color: var(--panel-text);
+  padding: 0 5px ;
+  box-shadow: 5px 5px 0 var(--shadow);
+  transition: box-shadow 0.5s ease, transform 0.5s ease;
+  display: flex;
+  justify-content: space-between;
+  
+
+}
+
+
+
+.experiance_card:hover {
+  transform: translateY(-4px);
+  box-shadow: none;
+  background-color: #444;
+  color: white;
+  transition: background-color 0.3s ease, color 0.3s ease, transfrom 0.2s ease;
+
+  
+}
+
+.exp-job {
+  font-weight: bold;
+}
+
+.exp-date {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 500;
+  font-size: 17px;
+  
+}
+
+.footer .time {
+  border: 1px solid rgb(180, 175, 175);
+  padding: 5px;
+  margin-top: -5px;
+  background-color: #ddd;
+  margin-right: 30px;
+}
+
+.footer .footer__main {
+  font-size: 16px;
+  margin-left: 30px;
+}
+/* === Footer === */
+.footer {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--text);
+  display: flex;
+  justify-content:space-between;
+}
+
+
+/* === Responsive: Tablets (768px and below) === */
+@media screen and (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .social-links {
+    margin-top: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-intro {
+    padding: 2rem 1rem;
+  }
+
+  .hero-intro h1 {
+    font-size: 2.2rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .footer .time, .footer .footer__main {
+    margin: 0;
+  }
+
+  .icons img {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+
+/* === Responsive: Phones (480px and below) === */
+@media screen and (max-width: 480px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-intro h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-intro .subtitle {
+    font-size: 1rem;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .social-links a {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+  }
+
+  .experiance_card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .icons img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .langs h3, .projects__title, .experience__title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
