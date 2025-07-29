@@ -43,10 +43,10 @@ const TopBar = () => {
     <div className="w-full py-2 px-0 flex flex-col sm:flex-row justify-between items-start text-sm mb-4">
       <div className="mb-2 sm:mb-0">
         {/* Using `Math.floor` or `toFixed` might be better for consistent display if values are not integers */}
-        <span id="visits-count">{visits.toLocaleString()}</span> •
-        <strong> <span id="hours-count">{hours.toLocaleString()}</span> hrs</strong>
+        {/* <span id="visits-count">{visits.toLocaleString()}</span> • */}
+        {/* <strong> <span id="hours-count">{hours.toLocaleString()}</span> hrs</strong> */}
         <br />
-        <small>out of <u className="no-underline">10,000</u> ~ 27%</small>
+        {/* <small>out of <u className="no-underline">10,000</u> ~ 27%</small> */}
       </div>
 
       <div className="flex gap-4 sm:gap-4">
