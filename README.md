@@ -1,10 +1,14 @@
 # My Personal Portfolio Simple [React + vite]
-a simple personal portfolio for me 
+<div align="center">
+<p>A simple personal portfolio for me.</p>
+</div>
 
 
 <div align="center">
+
 <img src="github/hero.png" width="600px" height="300px">
 </div>
+
 ### npm installation
 ```
 npm install
