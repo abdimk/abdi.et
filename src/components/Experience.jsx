@@ -3,19 +3,19 @@ import ExperienceCard from './ExperienceCard';
 
 const experienceData = [
   {
-    jobTitle: "Backend / DevOps at Nilode",
+    jobTitle: "Backend Engineer / DevOps at Nilode",
     location: "(remote)",
     date: "Mar 2025 - Present",
     description: "Responsible for developing various backend systems with a strong focus on web scraping and automation using Python.Worked extensively with technologies such as Next.js,Puppeteer,Selenium, FastAPI, PostgreSQL, and Docker."
   },
   {
-    jobTitle: "Machine Learning Engineer",
+    jobTitle: "Backend Engineer / Data Analytics",
     location: "at INSA (Intership onsite)",
     date: "July 2024 - Sep 2024",
     description: "Developed a distributed facial recognition and activity tracking attendance system.The system leverages Apache Kafka to stream video from multiple CCTV cameras, processes the data through a TensorFlow model, retrieves user information from SQLite"
   },
   {
-    jobTitle: "Automation Engineer and Web Dev",
+    jobTitle: "Backend Developer (python)",
     location: "at Ethio aliance (onsite / remote)",
     date: "Oct 2023 - May 2024",
     description: "Initiated continuous improvement and efficiency gains by automating the filtering and processing of 75,000 business records, eliminating hours of manual work. The Business Directory API, built using FastAPI, Uvicorn, and JWT, resulted in improved data accuracy and company performance."
