@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "www.abdi.et",
+      "destination": "https://abdi.et",
+      "permanent": true
+    }
+  ]
+}
