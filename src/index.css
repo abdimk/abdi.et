@@ -33,17 +33,14 @@
 }
 
 /* Base Styles using custom properties defined in @theme */
+
 body {
   background-color: var(--color-bg-color);
-  background-image: radial-gradient(var(--color-dot-color) 1px, transparent 1px);
-  background-size: 12px 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Ccircle cx='1' cy='1' r='1' fill='%23444cf7' fill-opacity='0.5'/%3E%3C/svg%3E");
   background-attachment: fixed;
-  font-family: var(--font-family-main);
-  color: var(--color-text-color);
-  padding: 2rem; /* Tailwind's p-8 will be 2rem, assuming default config or adjusted base */
-  margin: 0;
-  line-height: 1.5;
 }
+
+
 
 /* You can also define global styles for headings or other elements if needed,
    but Tailwind encourages using utility classes directly in components. */
