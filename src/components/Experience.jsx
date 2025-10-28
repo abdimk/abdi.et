@@ -3,9 +3,15 @@ import ExperienceCard from './ExperienceCard';
 
 const experienceData = [
   {
+    jobTitle: "Zenphony",
+    location: "(remote)",
+    date: "Sep 2025 - Preset",
+    description: "• Building reusable automation systems with fastAPI,express.js and docker, developing user-friendly websites using Next.js, automating desktop applications and integrating with existing system architectures."
+  },
+  {
     jobTitle: "Backend Engineer / DevOps at Nilode",
     location: "(remote)",
-    date: "Mar 2025 - Present",
+    date: "Mar 2025 - Aug 2025",
     description: "Responsible for developing various backend systems with a strong focus on web scraping and automation using Python.Worked extensively with technologies such as Next.js,Puppeteer,Selenium, FastAPI, PostgreSQL, and Docker."
   },
   {
