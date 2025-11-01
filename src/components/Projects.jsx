@@ -17,7 +17,7 @@ const projectsData = [
     title: "JobHub",
     tags: ["Nextjs", "FastAPI", "Selenium"],
     description: "a simple nextjs / fastapi website that allows you to search for jobs with different parameters.",
-    liveLink: "https://job-hub-blond.vercel.app/",
+    liveLink: null,
     sourceLink: "https://github.com/abdimk/JobHub",
   },
   {
