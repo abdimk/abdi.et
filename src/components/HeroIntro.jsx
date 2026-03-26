@@ -9,7 +9,7 @@ const HeroIntro = () => {
       </p>
       <div className="flex flex-col sm:flex-row justify-center gap-4 flex-wrap">
         <a
-          href="https://drive.google.com/file/d/1XhZNy0yJRDlvHAZvRcGNOGwRfE3TE5_b/view?usp=sharing"
+          href="https://drive.google.com/file/d/1LzsJIGSDBu1dikBeA9hXK6lIPGhSa-et/view?usp=sharing"
           className="inline-block py-3 px-6 text-base font-bold border-2 border-text-color no-underline text-white bg-text-color rounded-lg transition-colors duration-200 w-full sm:w-auto text-center"
           download
         >
