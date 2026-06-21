@@ -1,8 +1,8 @@
 {
   "redirects": [
     {
-      "source": "www.abdi.et",
-      "destination": "https://abdi.et",
+      "source": "https://www.abdi.et/(.*)",
+      "destination": "https://abdi.et/$1",
       "permanent": true
     }
   ]
