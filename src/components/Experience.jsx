@@ -1,13 +1,20 @@
 'use client';
 
-import { useState } from 'react'; 
+import { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 import ExperienceCard from './ExperienceCard';
 
 const experienceData = [
   {
+    jobTitle: "Birrlink Payment Soultion(Core Payment Solution Engineer)",
+    location: "Addis Abeba, Ethiopia",
+    date: "Feb 2025 - Present",
+    description: "Working on core payment system architecture"
+  },
+  {
     jobTitle: "Zenphony",
     location: "(remote)",
-    date: "Sep 2025 - Preset",
+    date: "Sep 2025 - Nov 2025",
     description: "• Building reusable automation systems with fastAPI,express.js and docker, developing user-friendly websites using Next.js, automating desktop applications and integrating with existing system architectures."
   },
   {
@@ -38,25 +45,49 @@ const experienceData = [
 
 const Experience = () => {
   const [openIndex, setOpenIndex] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(3);
 
   const handleCardClick = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => Math.min(prev + 3, experienceData.length));
+  };
+
+  const visibleData = experienceData.slice(0, visibleCount);
+  const hasMore = visibleCount < experienceData.length;
+
   return (
     <section>
       <h3 className="text-3xl font-semibold md:text-4xl text-center mb-6">Work Experience</h3>
       <div className="flex flex-col gap-4">
-        {experienceData.map((exp, index) => (
+        {visibleData.map((exp, index) => (
           <ExperienceCard
             key={index}
             {...exp}
-            index={index} 
-            isOpen={openIndex === index} 
-            onClick={() => handleCardClick(index)} 
+            index={index}
+            isOpen={openIndex === index}
+            onClick={() => handleCardClick(index)}
           />
         ))}
       </div>
+
+      {/* Load More Arrow — outside and below the cards */}
+      {hasMore && (
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={handleLoadMore}
+            className="flex flex-col items-center gap-1 group focus:outline-none"
+            aria-label="Show more experience"
+          >
+            <span className="text-xs font-medium tracking-wide opacity-60 group-hover:opacity-100 transition-opacity">
+              more
+            </span>
+            <ChevronDown className="w-7 h-7 animate-bounce group-hover:scale-110 transition-transform" />
+          </button>
+        </div>
+      )}
     </section>
   );
 };
