@@ -37,6 +37,16 @@ body {
   background-attachment: fixed;
 }
 
+/* Night light overlay — warm amber at 60% opacity */
+html::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 132, 62, 0.1);
+  pointer-events: none;
+  z-index: 9999;
+}
+
 h1, h2, h3, h4 {
   font-family: var(--font-family-main);
 }
