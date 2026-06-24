@@ -8,6 +8,9 @@ const nextConfig = {
   turbopack: {
     root: __dirname,
   },
+  env: {
+    NEXT_PUBLIC_DEPLOY_TIME: new Date().toISOString(),
+  },
 };
 
 export default nextConfig;

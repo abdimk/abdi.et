@@ -3,46 +3,49 @@
 import React, { useEffect, useState } from 'react';
 import { Send, Github, Code, Linkedin, Mail } from 'lucide-react';
 
+const GOAL = 10_000;
+
 const TopBar = () => {
-  const [uptime, setUptime] = useState('…');
   const [hours, setHours] = useState(0);
+  const [targetHours, setTargetHours] = useState(0);
 
   useEffect(() => {
-    // Fetch real uptime from heartbeat
-    fetch('/v1/status/heartbeat')
+    // Fetch real WakaTime total hours from proxy
+    fetch('/v1/wakatime')
       .then((r) => r.json())
       .then((data) => {
-        if (data?.uptime?.human) setUptime(data.uptime.human);
+        if (data?.hours) setTargetHours(data.hours);
       })
       .catch(() => {});
+  }, []);
 
-    // Animate hours count-up (static display value)
+  useEffect(() => {
+    if (targetHours === 0) return;
+
     const frameRate = 15;
-    const duration = 1200;
-    const endValue = 8750;
+    const duration = 1400;
     const totalFrames = Math.round((duration / 1000) * frameRate);
     let currentFrame = 0;
 
     const counter = setInterval(() => {
       currentFrame++;
       const progress = currentFrame / totalFrames;
-      setHours(Math.floor(progress * endValue));
-      if (currentFrame === totalFrames) {
+      setHours(Math.floor(progress * targetHours));
+      if (currentFrame >= totalFrames) {
         clearInterval(counter);
-        setHours(endValue);
+        setHours(targetHours);
       }
     }, 1000 / frameRate);
 
     return () => clearInterval(counter);
-  }, []);
+  }, [targetHours]);
 
   return (
     <div className="w-full py-2 px-0 flex flex-col sm:flex-row justify-between items-start text-sm mb-4">
       <div className="mb-2 sm:mb-0">
-        <span id="uptime-display">{uptime}</span> •
-        <strong> <span id="hours-count">{hours.toLocaleString()}</span> hrs</strong>
+        <strong><span id="hours-count">{hours.toLocaleString()}</span> hrs</strong>
         <br />
-        <small>out of <u className="no-underline">10,000</u> ~ 27%</small>
+        <small>out of <u className="no-underline">{GOAL.toLocaleString()}</u> ~ {targetHours ? Math.round((targetHours / GOAL) * 100) : '…'}%</small>
       </div>
 
       <div className="flex gap-4 sm:gap-4">

@@ -6,16 +6,28 @@ const Footer = () => {
   const [updateDate, setUpdateDate] = useState('…');
 
   useEffect(() => {
+    // Try env var injected at build time first (works on Vercel where git.date is null)
+    const buildTime = process.env.NEXT_PUBLIC_DEPLOY_TIME;
+    if (buildTime) {
+      const d = new Date(buildTime);
+      setUpdateDate(
+        d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
+      );
+      return;
+    }
+
+    // Fallback: fetch from heartbeat (works locally where git CLI is available)
     fetch('/v1/status/heartbeat')
       .then((r) => r.json())
       .then((data) => {
         const raw = data?.git?.date;
         if (raw) {
-          // raw is ISO-like: "2026-06-23 15:29:06 +0300"
           const d = new Date(raw);
           setUpdateDate(
             d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
           );
+        } else {
+          setUpdateDate('N/A');
         }
       })
       .catch(() => setUpdateDate('N/A'));
