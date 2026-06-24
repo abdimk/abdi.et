@@ -10,13 +10,13 @@ const STORAGE_KEY = 'night-light';
 const TopBar = () => {
   const [hours, setHours] = useState(0);
   const [targetHours, setTargetHours] = useState(0);
-  const [nightLight, setNightLight] = useState(true);
+  const [nightLight, setNightLight] = useState(false);
   const [ready, setReady] = useState(false);
 
   // Restore night light preference from localStorage
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
-    const isOn = stored !== null ? stored === 'true' : true; // default ON
+    const isOn = stored !== null ? stored === 'true' : false; // default OFF
     setNightLight(isOn);
     document.documentElement.classList.toggle('night-light', isOn);
     setReady(true);
