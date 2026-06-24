@@ -37,14 +37,21 @@ body {
   background-attachment: fixed;
 }
 
-/* Night light overlay — warm amber at 60% opacity */
+/* Night light overlay — warm amber at 60% opacity, hidden by default */
 html::after {
   content: '';
   position: fixed;
   inset: 0;
-  background: rgba(255, 132, 62, 0.1);
+  background: rgba(255, 132, 62, 0.2);
   pointer-events: none;
   z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+/* Visible when .night-light class is present on <html> */
+html.night-light::after {
+  opacity: 1;
 }
 
 h1, h2, h3, h4 {

@@ -1,13 +1,33 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Send, Github, Code, Linkedin, Mail } from 'lucide-react';
+import { Send, Github, Code, Linkedin, Mail, Moon, Sun } from 'lucide-react';
 
 const GOAL = 10_000;
+
+const STORAGE_KEY = 'night-light';
 
 const TopBar = () => {
   const [hours, setHours] = useState(0);
   const [targetHours, setTargetHours] = useState(0);
+  const [nightLight, setNightLight] = useState(true);
+  const [ready, setReady] = useState(false);
+
+  // Restore night light preference from localStorage
+  useEffect(() => {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    const isOn = stored !== null ? stored === 'true' : true; // default ON
+    setNightLight(isOn);
+    document.documentElement.classList.toggle('night-light', isOn);
+    setReady(true);
+  }, []);
+
+  const toggleNightLight = () => {
+    const next = !nightLight;
+    localStorage.setItem(STORAGE_KEY, next);
+    document.documentElement.classList.toggle('night-light', next);
+    setNightLight(next);
+  };
 
   useEffect(() => {
     // Fetch real WakaTime total hours from proxy
@@ -58,7 +78,8 @@ const TopBar = () => {
         <small>out of <u className="no-underline">{GOAL.toLocaleString()}</u> ~ {targetHours ? Math.round((targetHours / GOAL) * 100) : '…'}%</small>
       </div>
 
-      <div className="flex gap-4 sm:gap-4">
+      <div className="flex gap-4 sm:gap-4 items-center">
+        {/* Night light toggle — only show after localStorage is read */}
         <a href="https://t.me/iamnetkas/" target="_blank" title="Telegram" className="text-text-color hover:text-dot-color transition-colors duration-300">
           <Send className="w-6 h-6 transition-transform duration-200 hover:scale-110" />
         </a>
@@ -74,6 +95,24 @@ const TopBar = () => {
         <a href="mailto:abdisamk@gmail.com" target="_blank" title="Email" className="text-text-color hover:text-dot-color transition-colors duration-300">
           <Mail className="w-6 h-6 transition-transform duration-200 hover:scale-110" />
         </a>
+
+        {ready && (
+          <>
+            <span className="text-text-color opacity-30 select-none">|</span>
+            <button
+              onClick={toggleNightLight}
+              title={nightLight ? 'Turn off night light' : 'Turn on night light'}
+              className="text-text-color hover:text-dot-color transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-dot-color focus-visible:outline-none rounded-sm"
+            >
+              {nightLight ? (
+                <Sun className="w-5 h-5 transition-transform duration-200 hover:scale-110" />
+              ) : (
+                <Moon className="w-5 h-5 transition-transform duration-200 hover:scale-110" />
+              )}
+            </button>
+          </>
+        )}
+
       </div>
     </div>
   );
