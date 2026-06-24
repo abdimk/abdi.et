@@ -43,7 +43,17 @@ const TopBar = () => {
   return (
     <div className="w-full py-2 px-0 flex flex-col sm:flex-row justify-between items-start text-sm mb-4">
       <div className="mb-2 sm:mb-0">
-        <strong><span id="hours-count">{hours.toLocaleString()}</span> hrs</strong>
+        <strong>
+          <a href="https://wakatime.com/@abdisa" target="_blank" rel="noopener noreferrer" title="View WakaTime profile">
+            <img
+              src="https://wakatime.com/static/img/wakatime.svg"
+              alt="WakaTime"
+              className="inline-block mr-1 align-middle opacity-80 hover:opacity-100 transition-opacity duration-200"
+              style={{ width: '14px', height: '14px' }}
+            />
+          </a>
+          <span id="hours-count">{hours.toLocaleString()}</span> hrs
+        </strong>
         <br />
         <small>out of <u className="no-underline">{GOAL.toLocaleString()}</u> ~ {targetHours ? Math.round((targetHours / GOAL) * 100) : '…'}%</small>
       </div>
