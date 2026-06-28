@@ -1,3 +1,7 @@
+'use client';
+
+import { useState } from 'react';
+import { ChevronDown } from 'lucide-react';
 import ProjectCard from './ProjectCard';
 
 const projectsData = [
@@ -122,14 +126,54 @@ const projectsData = [
 ];
 
 const Projects = () => {
+  const [visibleCount, setVisibleCount] = useState(6);
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => Math.min(prev + 3, projectsData.length));
+  };
+
+  const handleShowLess = () => {
+    setVisibleCount(6);
+  };
+
+  const visibleData = projectsData.slice(0, visibleCount);
+  const hasMore = visibleCount < projectsData.length;
+  const canShowLess = visibleCount > 6;
+
   return (
     <section className="mt-4">
       <h1 className="text-2xl font-semibold md:text-5xl text-center mb-8">Projects</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projectsData.map((project, index) => (
+        {visibleData.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
       </div>
+
+      {/* Load More / Show Less — brutalist pill buttons */}
+      {(hasMore || canShowLess) && (
+        <div className="flex justify-center mt-10 gap-6">
+          {canShowLess && (
+            <button
+              onClick={handleShowLess}
+              className="flex items-center gap-2 px-6 py-2.5 border-2 border-black bg-white shadow-[4px_4px_0_black] hover:bg-black hover:text-white hover:shadow-[4px_4px_0_#666] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all duration-200 font-main text-sm font-bold tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+              aria-label="Show less projects"
+            >
+              <ChevronDown className="w-4 h-4 rotate-180" />
+              <span>SHOW LESS</span>
+            </button>
+          )}
+          {hasMore && (
+            <button
+              onClick={handleLoadMore}
+              className="flex items-center gap-2 px-6 py-2.5 border-2 border-black bg-white shadow-[4px_4px_0_black] hover:bg-black hover:text-white hover:shadow-[4px_4px_0_#666] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all duration-200 font-main text-sm font-bold tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+              aria-label="Show more projects"
+            >
+              <span>MORE</span>
+              <ChevronDown className="w-4 h-4" />
+            </button>
+          )}
+        </div>
+      )}
     </section>
   );
 };
