@@ -12,6 +12,15 @@ const projectsData = [
     sourceText: "(Ongoing)"
   },
   {
+    image: "/images/neobank.png",
+    alt: "image of a silus monitoring platfrom",
+    title: "Neobank UI",
+    tags: ["Nextjs", "TypeScript"],
+    description: "Neobank Frontend and system architecture",
+    liveLink: "https://neobank.abdi.et", // "https://your-live-site.com"
+    sourceLink: "https://github.com/neobank"
+  },
+  {
     image: "/images/jobhub.png",
     alt: "Jobhub screenshot",
     title: "JobHub",

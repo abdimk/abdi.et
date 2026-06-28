@@ -55,8 +55,14 @@ const Experience = () => {
     setVisibleCount((prev) => Math.min(prev + 3, experienceData.length));
   };
 
+  const handleShowLess = () => {
+    setVisibleCount(3);
+    setOpenIndex(null);
+  };
+
   const visibleData = experienceData.slice(0, visibleCount);
   const hasMore = visibleCount < experienceData.length;
+  const canShowLess = visibleCount > 3;
 
   return (
     <section>
@@ -73,19 +79,33 @@ const Experience = () => {
         ))}
       </div>
 
-      {/* Load More Arrow — outside and below the cards */}
-      {hasMore && (
-        <div className="flex justify-center mt-6">
-          <button
-            onClick={handleLoadMore}
-            className="flex flex-col items-center gap-1 group focus:outline-none"
-            aria-label="Show more experience"
-          >
-            <span className="text-xs font-medium tracking-wide opacity-60 group-hover:opacity-100 transition-opacity">
-              more
-            </span>
-            <ChevronDown className="w-7 h-7 animate-bounce group-hover:scale-110 transition-transform" />
-          </button>
+      {/* Load More / Show Less — outside and below the cards */}
+      {(hasMore || canShowLess) && (
+        <div className="flex justify-center mt-6 gap-8">
+          {canShowLess && (
+            <button
+              onClick={handleShowLess}
+              className="flex flex-col items-center gap-1 group focus:outline-none"
+              aria-label="Show less experience"
+            >
+              <ChevronDown className="w-7 h-7 rotate-180 animate-bounce group-hover:scale-110 transition-transform" />
+              <span className="text-xs font-medium tracking-wide opacity-60 group-hover:opacity-100 transition-opacity">
+                less
+              </span>
+            </button>
+          )}
+          {hasMore && (
+            <button
+              onClick={handleLoadMore}
+              className="flex flex-col items-center gap-1 group focus:outline-none"
+              aria-label="Show more experience"
+            >
+              <span className="text-xs font-medium tracking-wide opacity-60 group-hover:opacity-100 transition-opacity">
+                more
+              </span>
+              <ChevronDown className="w-7 h-7 animate-bounce group-hover:scale-110 transition-transform" />
+            </button>
+          )}
         </div>
       )}
     </section>
