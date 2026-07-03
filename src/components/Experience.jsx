@@ -79,13 +79,13 @@ const Experience = () => {
         ))}
       </div>
 
-      {/* Load More / Show Less — brutalist pill buttons */}
+      {/* Load More / Show Less */}
       {(hasMore || canShowLess) && (
         <div className="flex justify-center mt-8 gap-6">
           {canShowLess && (
             <button
               onClick={handleShowLess}
-              className="flex items-center gap-2 px-6 py-2.5 border-2 border-black bg-white shadow-[4px_4px_0_black] hover:bg-black hover:text-white hover:shadow-[4px_4px_0_#666] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all duration-200 font-main text-sm font-bold tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+              className="flex items-center gap-2 py-1.5 px-4 text-sm font-bold border-2 border-text-color text-text-color bg-transparent rounded hover:bg-gray-100 transition-colors duration-200"
               aria-label="Show less experience"
             >
               <ChevronDown className="w-4 h-4 rotate-180" />
@@ -95,7 +95,7 @@ const Experience = () => {
           {hasMore && (
             <button
               onClick={handleLoadMore}
-              className="flex items-center gap-2 px-6 py-2.5 border-2 border-black bg-white shadow-[4px_4px_0_black] hover:bg-black hover:text-white hover:shadow-[4px_4px_0_#666] active:translate-x-[4px] active:translate-y-[4px] active:shadow-none transition-all duration-200 font-main text-sm font-bold tracking-wide focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2"
+              className="flex items-center gap-2 py-1.5 px-4 text-sm font-bold border-2 border-text-color text-text-color bg-transparent rounded hover:bg-gray-100 transition-colors duration-200"
               aria-label="Show more experience"
             >
               <span>MORE</span>
