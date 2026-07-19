@@ -11,13 +11,13 @@ const THEMES = ['normal', 'nightlight', 'darktheme'];
 const TopBar = () => {
   const [hours, setHours] = useState(0);
   const [targetHours, setTargetHours] = useState(0);
-  const [theme, setTheme] = useState('normal');
+  const [theme, setTheme] = useState('darktheme');
   const [ready, setReady] = useState(false);
 
   // Restore theme preference from localStorage
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
-    const initialTheme = THEMES.includes(stored) ? stored : 'normal';
+    const initialTheme = THEMES.includes(stored) ? stored : 'darktheme';
     setTheme(initialTheme);
     document.documentElement.classList.toggle('night-light', initialTheme === 'nightlight');
     document.documentElement.classList.toggle('dark-theme', initialTheme === 'darktheme');
@@ -86,6 +86,7 @@ const TopBar = () => {
               style={{ width: '14px', height: '14px' }}
             />
           </a>
+          <span className="mr-1">Weka</span>
           <span id="hours-count">{hours.toLocaleString()}</span> hrs
         </strong>
         <br />
