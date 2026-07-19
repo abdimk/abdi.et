@@ -98,9 +98,6 @@ const HeroIntro = () => {
                 alt="Coding animation"
                 className="w-24 h-24 rounded-lg border-2 border-border-color shadow-custom-panel bg-card-bg object-cover"
               />
-              <span className="whitespace-nowrap text-xs font-medium bg-card-bg border border-border-color shadow-custom-panel px-2 py-1 rounded-sm text-muted-text">
-                the hand is not mine it was mera's
-              </span>
             </span>
           )}
         </div>
