@@ -2,6 +2,7 @@ import TopBar from "./components/TopBar";
 import HeroIntro from "./components/HeroIntro";
 import AboutMe from "./components/AboutMe";
 import LanguagesTools from "./components/LanguagesTools";
+import Education from "./components/Education";
 import Projects from "./components/Projects";
 import Experience from "./components/Experience";
 import Footer from "./components/Footer";
@@ -16,6 +17,7 @@ const App = () => {
       <LanguagesTools />
       <Projects />
       <Experience />
+      <Education />
       <Footer />
     </div>
     

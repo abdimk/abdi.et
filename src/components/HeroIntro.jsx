@@ -7,7 +7,7 @@ const HeroIntro = () => {
           <h1 className="text-4xl font-semibold md:text-5xl mb-4 leading-snug">
             Hola, I’m <span className="text-dot-color">Abdisa</span>
           </h1>
-          <p className="text-lg md:text-xl mb-8 text-muted-text text-center">
+          <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-muted-text text-center">
             A curious Backend Developer, crafting tools & products with a focus on clean code and quick delivery.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 flex-wrap">
