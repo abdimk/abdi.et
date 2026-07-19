@@ -2,6 +2,9 @@
 
 @import "tailwindcss";
 
+/* Enable dark: variant for our class-based dark theme */
+@variant dark (&:where(.dark-theme, .dark-theme *));
+
 @font-face {
   font-family: 'MainFont';
   src: url("/font/main_font.woff2") format('woff2');
