@@ -41,7 +41,7 @@ const HeroIntro = () => {
             </span>
           </h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-muted-text text-center">
-            A curious Backend Developer, crafting tools & products with a focus on clean code and quick delivery.
+            A curious Backend, Web & Infrastructure Developer, crafting tools and products with a focus on clean code and fast delivery.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4 flex-wrap">
             <span

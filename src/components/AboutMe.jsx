@@ -4,7 +4,7 @@ const AboutMe = () => {
       <h2 className="text-2xl mb-2">About Me</h2>
       <p>
         I've always been fascinated by technology and its power to shape the way we live.
-        This curiosity naturally led me into the world of software development—a field I truly enjoy. I strongly
+        This curiosity naturally led me into the world of software development, a field I truly enjoy. I strongly
         believe that technology holds the potential to create meaningful and lasting impact in people's lives.
       </p>
     </section>
