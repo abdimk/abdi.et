@@ -22,7 +22,7 @@ const ExperienceCard = ({ jobTitle, location, date, description, isOpen, onClick
   }, [isOpen]); 
 
   return (
-    <div className="border border-black bg-panel-text p-4 shadow-experience-card transition-all duration-500 hover:-translate-y-1 hover:shadow-4 hover:bg-gray-600 hover:text-white">
+    <div className="border border-border-color bg-card-bg p-4 shadow-experience-card transition-all duration-500 hover:-translate-y-1 hover:shadow-4 hover:bg-hover-bg hover:text-text-color">
       {/* Accordion Header */}
       <div
         className="flex justify-between items-center cursor-pointer"
@@ -38,9 +38,9 @@ const ExperienceCard = ({ jobTitle, location, date, description, isOpen, onClick
         {/* Toggle Icon */}
         <div>
           {isOpen ? (
-            <ChevronUp className="w-6 h-6 text-black" />
+            <ChevronUp className="w-6 h-6 text-text-color" />
           ) : (
-            <ChevronDown className="w-6 h-6 text-black" />
+            <ChevronDown className="w-6 h-6 text-text-color" />
           )}
         </div>
       </div>
@@ -53,7 +53,7 @@ const ExperienceCard = ({ jobTitle, location, date, description, isOpen, onClick
           isOpen ? 'opacity-100 mt-4' : 'opacity-0' // Opacity changes immediately, height smoothly animates
         }`}
       >
-        <p className="text-base sm:text-lg border-t border-black pt-4">
+        <p className="text-base sm:text-lg border-t border-border-color pt-4">
           {description}
         </p>
       </div>

@@ -20,6 +20,13 @@
   --color-shadow-color: #383636;
   --color-panel-bg: #000;
   --color-panel-text: #f1f1f1;
+  --color-card-bg: #ffffff;
+  --color-muted-text: #374151;
+  --color-tag-bg: #d1d5db;
+  --color-tag-text: #000000;
+  --color-hover-bg: #f3f4f6;
+  --color-btn-primary-bg: #111;
+  --color-btn-primary-text: #f1f1f1;
 
   /* Font Family */
   --font-family-main: 'MainFont', sans-serif;
@@ -30,11 +37,37 @@
   --shadow-experience-card: 5px 5px 0 var(--color-shadow-color);
 }
 
+/* Dark theme overrides */
+html.dark-theme {
+  --color-bg-color: #12121c;
+  --color-dot-color: #6b70ff;
+  --color-text-color: #f0f0f0;
+  --color-accent: #ffffff;
+  --color-border-color: #4a4a5a;
+  --color-shadow-color: #0a0a12;
+  --color-panel-bg: #1a1a2e;
+  --color-panel-text: #f0f0f0;
+  --color-card-bg: #1e1e2f;
+  --color-muted-text: #a0a0b0;
+  --color-tag-bg: #2a2a3d;
+  --color-tag-text: #f0f0f0;
+  --color-hover-bg: #2a2a3d;
+  --color-btn-primary-bg: #f0f0f0;
+  --color-btn-primary-text: #111;
+}
+
 /* Base Styles */
 body {
   background-color: var(--color-bg-color);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Ccircle cx='1' cy='1' r='1' fill='%23444cf7' fill-opacity='0.5'/%3E%3C/svg%3E");
   background-attachment: fixed;
+  color: var(--color-text-color);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Dark theme background with subtler dots */
+html.dark-theme body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Ccircle cx='1' cy='1' r='1' fill='%236b70ff' fill-opacity='0.25'/%3E%3C/svg%3E");
 }
 
 /* Night light overlay — warm amber at 60% opacity, hidden by default */

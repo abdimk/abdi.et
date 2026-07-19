@@ -22,7 +22,7 @@ const CornerMark = ({ position }) => {
 
 const ProjectCard = ({ image, alt, title, tags, description, liveLink, sourceLink, sourceText = "Source" }) => {
   return (
-    <div className="relative bg-white shadow-project-card border border-border-color p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-none">
+    <div className="relative bg-card-bg shadow-project-card border border-border-color p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-none">
       <CornerMark position="top-left" />
       <CornerMark position="top-right" />
       <CornerMark position="bottom-left" />
@@ -32,7 +32,7 @@ const ProjectCard = ({ image, alt, title, tags, description, liveLink, sourceLin
       <h4 className="text-xl font-bold mb-2">{title}</h4>
       <div className="mb-2">
         {tags.map((tag, index) => (
-          <span key={index} className="inline-block bg-gray-300 text-black text-xs mr-1 py-0.5 px-1.5 rounded-sm">
+          <span key={index} className="inline-block bg-tag-bg text-tag-text text-xs mr-1 py-0.5 px-1.5 rounded-sm">
             {tag}
           </span>
         ))}
@@ -40,11 +40,11 @@ const ProjectCard = ({ image, alt, title, tags, description, liveLink, sourceLin
       <p className="mb-4">{description}</p>
       <div className="flex gap-4">
         {liveLink && (
-          <a href={liveLink} target="_blank" className="py-1.5 px-4 text-sm font-bold border-2 border-text-color no-underline text-white bg-text-color rounded hover:bg-black">
+          <a href={liveLink} target="_blank" className="py-1.5 px-4 text-sm font-bold border-2 border-text-color no-underline text-btn-primary-text bg-btn-primary-bg rounded hover:opacity-90">
             Site
           </a>
         )}
-        <a href={sourceLink} target="_blank" className="py-1.5 px-4 text-sm font-bold border-2 border-text-color no-underline text-text-color bg-transparent rounded hover:bg-gray-100">
+        <a href={sourceLink} target="_blank" className="py-1.5 px-4 text-sm font-bold border-2 border-text-color no-underline text-text-color bg-transparent rounded hover:bg-hover-bg">
           {sourceText}
         </a>
       </div>

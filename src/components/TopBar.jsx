@@ -1,33 +1,47 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { Send, Github, Code, Linkedin, Mail, Moon, Sun } from 'lucide-react';
+import { Send, Github, Code, Linkedin, Mail, Moon, Sun, SunDim } from 'lucide-react';
 
 const GOAL = 10_000;
 
-const STORAGE_KEY = 'night-light';
+const STORAGE_KEY = 'theme-mode';
+const THEMES = ['normal', 'nightlight', 'darktheme'];
 
 const TopBar = () => {
   const [hours, setHours] = useState(0);
   const [targetHours, setTargetHours] = useState(0);
-  const [nightLight, setNightLight] = useState(false);
+  const [theme, setTheme] = useState('normal');
   const [ready, setReady] = useState(false);
 
-  // Restore night light preference from localStorage
+  // Restore theme preference from localStorage
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY);
-    const isOn = stored !== null ? stored === 'true' : false; // default OFF
-    setNightLight(isOn);
-    document.documentElement.classList.toggle('night-light', isOn);
+    const initialTheme = THEMES.includes(stored) ? stored : 'normal';
+    setTheme(initialTheme);
+    document.documentElement.classList.toggle('night-light', initialTheme === 'nightlight');
+    document.documentElement.classList.toggle('dark-theme', initialTheme === 'darktheme');
     setReady(true);
   }, []);
 
-  const toggleNightLight = () => {
-    const next = !nightLight;
-    localStorage.setItem(STORAGE_KEY, next);
-    document.documentElement.classList.toggle('night-light', next);
-    setNightLight(next);
+  const cycleTheme = () => {
+    const currentIndex = THEMES.indexOf(theme);
+    const nextIndex = (currentIndex + 1) % THEMES.length;
+    const nextTheme = THEMES[nextIndex];
+
+    localStorage.setItem(STORAGE_KEY, nextTheme);
+    document.documentElement.classList.toggle('night-light', nextTheme === 'nightlight');
+    document.documentElement.classList.toggle('dark-theme', nextTheme === 'darktheme');
+    setTheme(nextTheme);
   };
+
+  const themeConfig = {
+    normal: { icon: Sun, title: 'Switch to night light' },
+    nightlight: { icon: SunDim, title: 'Switch to dark theme' },
+    darktheme: { icon: Moon, title: 'Switch to normal mode' },
+  };
+
+  const ThemeIcon = themeConfig[theme].icon;
 
   useEffect(() => {
     // Fetch real WakaTime total hours from proxy
@@ -100,15 +114,11 @@ const TopBar = () => {
           <>
             <span className="text-text-color opacity-30 select-none">|</span>
             <button
-              onClick={toggleNightLight}
-              title={nightLight ? 'Turn off night light' : 'Turn on night light'}
+              onClick={cycleTheme}
+              title={themeConfig[theme].title}
               className="text-text-color hover:text-dot-color transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-dot-color focus-visible:outline-none rounded-sm"
             >
-              {nightLight ? (
-                <Sun className="w-5 h-5 transition-transform duration-200 hover:scale-110" />
-              ) : (
-                <Moon className="w-5 h-5 transition-transform duration-200 hover:scale-110" />
-              )}
+              <ThemeIcon className="w-5 h-5 transition-transform duration-200 hover:scale-110" />
             </button>
           </>
         )}

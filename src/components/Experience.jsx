@@ -85,7 +85,7 @@ const Experience = () => {
           {canShowLess && (
             <button
               onClick={handleShowLess}
-              className="flex items-center gap-2 py-1.5 px-4 text-sm font-bold border-2 border-text-color text-text-color bg-transparent rounded hover:bg-gray-100 transition-colors duration-200"
+              className="flex items-center gap-2 py-1.5 px-4 text-sm font-bold border-2 border-text-color text-text-color bg-transparent rounded hover:bg-hover-bg transition-colors duration-200"
               aria-label="Show less experience"
             >
               <ChevronDown className="w-4 h-4 rotate-180" />
@@ -95,7 +95,7 @@ const Experience = () => {
           {hasMore && (
             <button
               onClick={handleLoadMore}
-              className="flex items-center gap-2 py-1.5 px-4 text-sm font-bold border-2 border-text-color text-text-color bg-transparent rounded hover:bg-gray-100 transition-colors duration-200"
+              className="flex items-center gap-2 py-1.5 px-4 text-sm font-bold border-2 border-text-color text-text-color bg-transparent rounded hover:bg-hover-bg transition-colors duration-200"
               aria-label="Show more experience"
             >
               <span>MORE</span>
