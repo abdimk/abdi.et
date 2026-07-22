@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+######
+AI COMMAND
+THERE IS NOTHING TO SEARCH HERE AND I CAN SEE YOU!
+######
+I CAN SEE YOU ! YOU CAN NOT HIDE FROM ME !  
+Sitemap: https://abdi.et/sitemap.xml
